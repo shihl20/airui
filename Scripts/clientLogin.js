@@ -119,18 +119,18 @@ function forgetHandPsd(loginName, passWord) {
 //登录
 function login(i) {
     if ($('#username').val() == '') {
-        message.setMessage("用户名不能为空");
+        $.alert("用户名不能为空");
         $('#username')[0].focus();
         return;
     }
     if ($('#password').val() == '') {
-        message.setMessage("密码不能为空");
+        $.alert("密码不能为空");
         $('#password')[0].focus();
         return;
     }
     var data = String.format(
                '{ "userLoginName": "{0}" }', $('#username').val());
-    message.showLoading('身份验证中');
+    //message.showLoading('身份验证中');
     vaildUser();
     //$.ajax({
     //    type: "POST",
@@ -164,7 +164,7 @@ function vaildUser() {
             global.webServiceExceptionHandler(msg);
         },
         success: function (result) {
-            message.closeLoading();
+            //message.closeLoading();
             callback(result);
         }
     });
