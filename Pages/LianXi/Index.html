@@ -1,0 +1,209 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>练习</title>
+</head>
+<body>
+    <div data-role="page" id="main">
+        <div class="ui-bar-h" id="head" data-theme="h" data-position="fixed" style="border: 0px" data-tap-toggle="false">
+            <!--<div class="menuImg">
+                <a href="#menuPanel" data-role="none" id="menuBtn">
+                    <img src="images/home.png" />
+                </a>
+            </div>-->
+            <!--<div id="batchBtn" class="menuImgRight">
+                <img src="Images/more.png" />
+            </div>-->
+            <div id="mainTitle" class="mainTitle">小学</div>
+        </div>
+        <div id="content">
+            <!-- 广告位 -->
+            <div id="bootstrap-touch-slider" style="height: 170px;" class="carousel bs-slider fade  control-round indicators-line" data-ride="carousel" data-pause="hover" data-interval="5000">
+
+                <!-- Indicators -->
+                <ol class="carousel-indicators">
+                    <li data-target="#bootstrap-touch-slider" data-slide-to="0" class="active"></li>
+                    <li data-target="#bootstrap-touch-slider" data-slide-to="1"></li>
+                    <li data-target="#bootstrap-touch-slider" data-slide-to="2"></li>
+                </ol>
+
+                <!-- Wrapper For Slides -->
+                <div class="carousel-inner" role="listbox">
+
+                    <!-- Third Slide -->
+                    <div class="item active">
+
+                        <!-- Slide Background -->
+                        <img src="Images/ad/lianxi/zhiyuan1.jpg" alt="Bootstrap Touch Slider" class="slide-image" />
+                        <!--<div class="bs-slider-overlay"></div>-->
+
+                        <div class="container">
+                            <div class="row">
+                                <!-- Slide Text Layer -->
+                                <div class="slide-text slide_style_left">
+                                    <!--<h1 data-animation="animated zoomInRight">Bootstrap Carousel</h1>
+                                    <p data-animation="animated fadeInLeft">Bootstrap carousel now touch enable slide.</p>-->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End of Slide -->
+                    <!-- Second Slide -->
+                    <div class="item">
+
+                        <!-- Slide Background -->
+                        <img src="Images/ad/lianxi/zhiyuan2.jpg" alt="Bootstrap Touch Slider" class="slide-image" />
+                        <!--<div class="bs-slider-overlay"></div>-->
+                        <!-- Slide Text Layer -->
+                        <div class="slide-text slide_style_center">
+                            <!-- <h1 data-animation="animated flipInX">Bootstrap touch slider</h1>
+                            <p data-animation="animated lightSpeedIn">Make Bootstrap Better together.</p>-->
+                        </div>
+                    </div>
+                    <!-- End of Slide -->
+                    <!-- Third Slide -->
+                    <div class="item">
+
+                        <!-- Slide Background -->
+                        <img src="Images/ad/lianxi/zhiyuan3.jpg" alt="Bootstrap Touch Slider" class="slide-image" />
+                        <!--<div class="bs-slider-overlay"></div>-->
+                        <!-- Slide Text Layer -->
+                        <div class="slide-text slide_style_right">
+                            <!--<h1 data-animation="animated zoomInLeft">Beautiful Animations</h1>
+                            <p data-animation="animated fadeInRight">Lots of css3 Animations to make slide beautiful .</p>-->
+                        </div>
+                    </div>
+                    <!-- End of Slide -->
+
+
+                </div>
+                <!-- End of Wrapper For Slides -->
+                <!-- Left Control -->
+                <a class="left carousel-control" href="#bootstrap-touch-slider" role="button" data-slide="prev">
+                    <span class="fa fa-angle-left" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+
+                <!-- Right Control -->
+                <a class="right carousel-control" href="#bootstrap-touch-slider" role="button" data-slide="next">
+                    <span class="fa fa-angle-right" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+
+            </div>
+            <!-- 已选学科 -->
+            <div class="weui-grids" id="objList">
+            </div>
+            <!-- 页脚 -->
+            <div class="weui-tabbar" id="foot">
+            </div>
+        </div>
+        <div id="setObject" class="weui-popup__container" style="z-index:501;">
+            <div class="weui-popup__overlay"></div>
+            <div class="weui-popup__modal">
+                <div class="ui-bar-h" id="setHead" style="border: 0px" data-tap-toggle="false">
+                    <div class="back">
+                        <img src="Images/back.png" />
+                    </div>
+                    <div class="mainTitle">学科设置</div>
+                </div>
+                <div id="setObjectList" class="weui-cells weui-cells_form">
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript">
+            global.pages.createFoot('1');
+            $('.slide-text').css("top", "3%");
+            $('.nav-pills>li>a').css("border-radius", "0px");
+            $('#bootstrap-touch-slider').bsTouchSlider();
+            //返回按钮事件
+            $('.back').click(function () {
+                $.closePopup();
+            });
+            //取学生信息，个性化页面
+            var studenInfo = JSON.parse(sessionStorage.getItem("userAttr"));
+            if (studenInfo.Type == '04' || studenInfo.Type == '05') {
+                var myDate = new Date();
+                var nextYear = myDate.getFullYear();
+                $("#mainTitle").html(String.format("距离高考还有{{0}}天", DateDiff(myDate.toLocaleDateString(), nextYear + 1 + "/6/6")));
+            }
+            else if (studenInfo.Type == '02') {
+                $("#mainTitle").html("初中");
+            }
+            function DateDiff(sDate1, sDate2) {    //sDate1和sDate2是2006-12-18格式
+                var aDate, oDate1, oDate2, iDays
+                aDate = sDate1.split("-")
+                oDate1 = new Date(aDate[1] + '-' + aDate[2] + '-' + aDate[0])    //转换为12-18-2006格式
+                aDate = sDate2.split("-")
+                oDate2 = new Date(aDate[1] + '-' + aDate[2] + '-' + aDate[0])
+                iDays = parseInt(Math.abs(oDate1 - oDate2) / 1000 / 60 / 60 / 24)    //把相差的毫秒数转换为天数
+                return iDays
+            }
+            //初始化页面
+            var noRefresh = sessionStorage.getItem('noRefresh');
+            if (noRefresh != 'true') {
+                //设置设置界面高度
+                $("#setObject").height($(document).height());
+                //根据学生ID取所有科目（附订阅关系）
+                global.invokeHandlerMethod("LianXiHandler", "GetAllObjs", sessionStorage.getItem('UserId'), function (result) {
+                    var data = JSON.parse(result.d);
+                    if (data) {
+                        data.forEach(function (v, i) {
+                            //学科设置界面
+                            $("#setObjectList").append(String.format('<div class="weui-cell weui-cell_switch" ><div class="weui-cell__hd"><img style="width: 2.4rem;height: 2.4rem;" src="images/Objects/{3}"></div><div class="weui-cell__bd">{1}</div><div class="weui-cell__ft"><input name="inputSetObject" class="weui-switch" data-objcode="{0}" style="outline:none;" {2} type="checkbox"></div></div>', v.Code, v.Name, v.Checked == '1' ? 'checked="checked"' : '', v.IconName));
+                            //列表界面
+                            $("#objList").append(String.format('<span style="display:{3};" class="weui-grid js_grid" data-target="{0}" data-objname="{1}"><div class="weui-grid__icon"><img src="images/Objects/{2}" ></div><p class="weui-grid__label"  style="margin:0px;">{1}</p></span>', v.Code, v.Name, v.IconName, v.Checked == '1' ? "block" : "none"));
+                        }); 
+                        objSetReg();
+                        objClickReg();
+                        $("#objList").append('<span id="openSetObjWin" class="weui-grid js_grid" ><div class="weui-grid__icon"><img src="images/Objects/add.png" alt="设置学科"></div><p class="weui-grid__label" style="margin:0px;">更多</p></span>');
+                        //学科设置——更多按钮事件
+                        $("#openSetObjWin").click(function () {
+                            $("#setObject").popup();
+                        });
+                    }
+                    message.closeLoading();
+                });
+            }
+            else {
+                global.bakContent.get();
+
+                //获取进度条原始位置
+                var scrollY = sessionStorage.getItem("scrollPos");
+                //还原上拉框状态
+                $('#pullUp').css('display', sessionStorage.getItem('pullUpState'));
+                //刷新滚动条
+                myScroll.refresh();
+                //滚动到原位置
+                myScroll.scrollTo(0, scrollY, 1, false);
+            }
+            //学科点击事件注册
+            function objClickReg() {
+                //根据学科转到学科试题列表
+                $("#objList>span").click(function (i, v) {
+                    sessionStorage.setItem("objname", $(this).attr("data-objname"));
+                    sessionStorage.setItem("objcode", $(this).attr("data-target"));
+                    global.loadPageByGetMethod("Pages/LianXi/ShiTiList.html");
+                });
+            }
+            //学科设置事件
+            function objSetReg() {
+                $("[name=inputSetObject]").change(function () {
+                    var objcode = $(this).attr("data-objcode");
+                    var isSet = this.checked;
+                    global.invokeHandlerMethod("LianXiHandler", "SetStudentObj", sessionStorage.getItem('UserId') + "|" + (this.checked ? "add" : "del") + "|" + objcode, function (result) {
+                        //控制列表界面科目的显示隐藏
+                        if (isSet) {
+                            $("#objList").children("[data-target=" + objcode + "]").show();
+                        }
+                        else {
+                            $("#objList").children("[data-target=" + objcode + "]").hide();
+                        }
+                    });
+                });
+            }
+        </script>
+    </div>
+</body>
+</html>

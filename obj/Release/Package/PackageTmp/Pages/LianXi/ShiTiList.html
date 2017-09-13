@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+</head>
+<body>
+    <div data-role="page" id="main">
+        <div class="ui-bar-h" id="head" style="border: 0px" data-tap-toggle="false">
+            <div class="back">
+                <img src="Images/back.png" />
+            </div>
+            <!--<div id="mergeList" class="menuImgRight" style="text-shadow: none; font-size: 1.4rem">
+                <a href="#mergeCasePanel" data-role="none" id="mergeBtn">
+                    <img src="images/merg.png" /></a>
+            </div>-->
+            <div id="title" class="mainTitle">语文</div>
+        </div>
+        <ul id="shitiList" class="list-group"></ul>
+        <div class="weui-tabbar" id="foot"></div>
+        <script type="text/javascript">
+            global.pages.createFoot('1');
+            //返回按钮事件
+            $('.back').click(function () {
+                toolBar.back();
+            });
+            //左侧菜单隐藏
+            $(document).click(function () {
+                $('#rightMenu').hide();
+            });
+            //更改标题
+            var objName = sessionStorage.getItem("objname");
+            $(".mainTitle").html(objName);
+            //根据学生ID取有权限的试卷
+            var curObjCode = sessionStorage.getItem("objcode");
+            global.invokeHandlerMethod("LianXiHandler", "GetShiJuan", sessionStorage.getItem('UserId') + "|" + curObjCode, function (result) {
+                var data = JSON.parse(result.d);
+                if (data) {
+                    data.forEach(function (v, i) {
+                        $("#shitiList").append(String.format('<li class="list-group-item" data-target="{0}" data-obj="{1}">{2}</li>', v.Guid, v.ObjectCode, v.Name));
+                    });
+                    //注册试题标题点击打开事件
+                    objClickReg();
+                }
+                message.closeLoading();
+            });
+            //注册点击事件
+            function objClickReg() {
+                $("#shitiList>li").click(function () {
+                    sessionStorage.setItem("viewerPara", String.format("web/viewer.html?file={0}Document/ShiJuan/{1}/{2}.pdf",global.getCmsRootPath(), $(this).attr("data-obj"), $(this).attr("data-target")));
+                    global.loadPageByGetMethod("Pages/Lianxi/ShiTiViewer.html");
+                    //window.location.href = String.format("web/viewer.html?file=../Document/ShiJuan/{0}/{1}.pdf", $(this).attr("data-obj"), $(this).attr("data-target"));
+                });
+            }
+            //设置返回地址
+            global.setBackUrl('Pages/LianXi/Index.html', false);
+        </script>
+    </div>
+</body>
+</html>

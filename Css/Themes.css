@@ -1,0 +1,643 @@
+﻿body {
+    overflow: hidden;
+    font-family: "微软雅黑,宋体";
+}
+
+a {
+    text-decoration: none;
+}
+
+    a:hover {
+        text-decoration: none;
+    }
+
+    a:focus {
+        text-decoration: none;
+    }
+
+p:focus {
+    text-decoration: none;  
+}
+
+.login-content {
+    overflow: hidden;
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    top: 45px;
+    background: -ms-linear-gradient(top, #c8fafd, #ddffdf); /* IE 10 */
+    background: -moz-linear-gradient(top,#c8fafd,#ddffdf); /*火狐*/
+    background: -webkit-gradient(linear, 0% 0%, 0% 100%,from(#c8fafd), to(#ddffdf)); /*谷歌*/
+    background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#c8fafd), to(#ddffdf)); /* Safari 4-5, Chrome 1-9*/
+    background: -webkit-linear-gradient(top, #c8fafd, #ddffdf); /*Safari5.1 Chrome 10+*/
+    background: -o-linear-gradient(top, #c8fafd, #ddffdf); /*Opera 11.10+*/
+}
+/*页眉主题样式*/
+.ui-bar-h {
+    height: 48px;
+    background-color: #0295fc;
+    color: white;
+    border: 0px;
+}
+
+/*页脚主题样式*/
+.ui-bar-f {
+    height: 45px;
+    background-color: #f6f6f6;
+    border: 0px;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+}
+/*底部工具栏样式*/
+.footer {
+    background: #f6f6f6;
+    text-shadow: none;
+    height: 45px;
+    border-top: 1px solid #bababa;
+}
+    /*单块样式*/
+    .footer .bar {
+        float: left;
+    }
+    /*图标样式*/
+    .footer img {
+        margin-top: 3px;
+        vertical-align: middle;
+    }
+
+/*头像样式*/
+.user-heard {
+    height: 50px;
+    line-height: 50px;
+    margin: 0 auto;
+    vertical-align: middle;
+    text-align: center;
+    cursor: pointer;
+}
+
+    .user-heard img {
+        width: 40px;
+        height: 40px;
+        border-radius: 20px;
+        vertical-align: middle;
+        margin: 0 5px 0 0;
+    }
+/*返回键样式*/
+.back {
+    position: absolute;
+    padding: 0px 30px 0px 10px;
+    height: 45px;
+    line-height: 45px;
+}
+
+    .back img {
+        vertical-align: middle;
+    }
+/*右侧菜单*/
+.rightMenu {
+    position: relative;
+    clear: both;
+    float: right;
+}
+/*主菜单图标样式*/
+.menuImg {
+    position: absolute;
+    left: 10px;
+    height: 45px;
+    line-height: 45px;
+}
+
+    .menuImg img {
+        vertical-align: middle;
+    }
+
+.menuImgRight {
+    position: absolute;
+    right: 10px;
+    height: 45px;
+    line-height: 45px;
+}
+
+    .menuImgRight img {
+        vertical-align: middle;
+    }
+/*标题样式*/
+.mainTitle {
+    text-shadow: none;
+    font-weight: 500;
+    font-size: 18px;
+    width: 100%;
+    text-align: center;
+    line-height: 45px;
+    height: 45px;
+}
+
+/*头像默认图标*/
+.ui-icon-menu:after {
+    background: url(../images/userhead40x40.png) no-repeat 0 0;
+    background-size: 40px 40px;
+}
+/*主菜单头像菜单分隔线*/
+.menuLine {
+    width: 1000px;
+    height: 5px;
+    margin: 5px auto;
+    border-bottom: 2px solid #000;
+}
+/*主菜单列表样式*/
+.menuSelectLeft {
+    text-align: center;
+    line-height: 36px;
+    color: white;
+    background: url('../Images/menuSelect.png');
+    height: 36px;
+    width: 90%;
+    float: left;
+    cursor: pointer;
+    -webkit-text-shadow: none;
+    text-shadow: none;
+}
+
+.menuSelectRight {
+    background: url('../Images/menuArrow.png');
+    height: 36px;
+    width: 15px;
+    float: left;
+    cursor: pointer;
+}
+
+.menuLeft {
+    clear: both;
+    text-align: center;
+    line-height: 36px;
+    border-right: 1px solid #bebbbb;
+    background: url('../Images/menuUnSelect.png');
+    height: 36px;
+    width: 90%;
+    cursor: pointer;
+    -webkit-text-shadow: none;
+    text-shadow: none;
+}
+/*页脚网格格式*/
+/*.ui-block-a, 
+.ui-block-b, 
+.ui-block-c  {
+    border: 0px;
+    height: 58px;
+    font-weight: bold;
+    text-align: center;
+    padding: 0px;
+}*/
+/*搜索页面样式*/
+.searchPage {
+    padding: 10px 0px 5px 5px;
+}
+
+    .searchPage div {
+        text-align: right;
+        margin: 10px;
+        border-bottom: 1px solid #999999;
+    }
+
+    .searchPage input {
+        background-color: white;
+        border: 0px;
+        padding: 0px 0px 5px 5px;
+        width: 66%;
+    }
+
+        .searchPage input:focus {
+            outline: none;
+        }
+/*搜索筛选页面搜素按钮*/
+.searchBtn {
+    margin: 10px;
+    padding: 10px 0px 5px 5px;
+}
+/*快速搜索框样式*/
+.searchBar {
+    height: 28px;
+    /*margin: 5px 10px 0px 10px;*/
+    line-height: 28px;
+    /*text-align: center;*/
+    vertical-align: middle;
+    border: 1px solid #bebbbb;
+    border-radius: 5px;
+    border-right: 0px;
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+    font-size: 1.4rem;
+}
+
+    .searchBar input {
+        margin: 0px 0px 0px 5px;
+        float: left;
+        width: auto;
+        height: 28px;
+        background-color: transparent;
+        border: 0px;
+    }
+
+        .searchBar input:focus {
+            outline: none;
+        }
+
+    .searchBar .btnDiv {
+        position: absolute;
+        right: 15px;
+        margin: -1px 0px 0px 0px;
+        height: 30px;
+        line-height: 30px;
+        width: 32px;
+        z-index: 2;
+        /*padding: 0px 4px 0px 4px;*/
+        background: #0295fc;
+        /*border-radius: 5px;*/
+        border-top-right-radius: 5px;
+        border-bottom-right-radius: 5px;
+        -moz-border-radius-bottomright: 5px;
+        -moz-border-radius-topright: 5px;
+        /*border-left: 1px solid #999999;*/
+        /*margin: 2px,0px,2px,0px;*/
+    }
+
+    .searchBar .btn {
+        vertical-align: middle;
+        width: 18px;
+        height: 18px;
+        padding: 0px 7px;
+    }
+/* 通用列表样式 */
+.common-ul {
+    list-style: none;
+    padding: 0em;
+    margin: 0;
+}
+
+    .common-ul li {
+        padding: 5px;
+        line-height: 14px;
+    }
+
+    .common-ul h1 {
+        margin: 0;
+        width: auto;
+        font-size: 12px;
+        float: left;
+    }
+
+    .common-ul label {
+        font-size: 12px;
+    }
+/*2*2+1列表类容样式*/
+.listContent {
+    font-size: 1.4rem;
+    text-shadow: none;
+    clear: both;
+    padding: 5px 10px 5px 10px;
+    /*height: 35px;*/
+    border-bottom: 1px solid #bdbcbc;
+    cursor: pointer;
+}
+
+    /*列表第一单元格字体样式*/
+    .listContent .listFontSize-1 {
+        font-weight: 600;
+    }
+
+    .listContent .listContentLeft {
+        height: 36px;
+        float: left;
+        width: 65%;
+    }
+
+        .listContent .listContentLeft div {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+    .listContent .listContentRight {
+        height: 36px;
+        float: left;
+        width: 30%;
+    }
+
+        .listContent .listContentRight div {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+    /*列表选择DIV样式*/
+    .listContent .listContentSelect {
+        text-align: center;
+        display: none;
+        line-height: 36px;
+        height: 36px;
+        vertical-align: middle;
+        float: left;
+        width: 5%;
+    }
+    /*列表箭头DIV样式*/
+    .listContent .listContentArrow {
+        /*display: none;*/
+        text-align: center;
+        line-height: 30px;
+        height: 30px;
+        vertical-align: middle;
+        float: left;
+        width: 14px;
+    }
+
+        .listContent .listContentArrow img {
+            margin-top: 8px;
+            margin-bottom: 8px;
+        }
+    /*列表选择框样式*/
+    .listContent .listContent-checkbox {
+        height: 30px;
+        line-height: 30px;
+        vertical-align: middle;
+        margin: 0;
+        padding: 0;
+    }
+
+        .listContent .listContent-checkbox img {
+            margin-top: 8px;
+            margin-bottom: 8px;
+        }
+/*1*3+1列表类容样式*/
+.listContent131 {
+    clear: both;
+    text-shadow: none;
+    padding: 5px 10px 5px 10px;
+    border-bottom: 1px solid #bdbcbc;
+    cursor: pointer;
+    height: 54px;
+}
+
+    /*列表第一单元格字体样式*/
+    .listContent131 .FontSize-1 {
+        font-weight: 600;
+    }
+    /*第二行字体样式*/
+    .listContent131 .FontSize-2 {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    /*第三行字体样式*/
+    .listContent131 .FontSize-3 {
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .listContent131 .Left {
+        height: 54px;
+        float: left;
+        width: 95%;
+    }
+    /*列表选择DIV样式*/
+    .listContent131 .listContentSelect {
+        position: absolute;
+        display: none;
+        line-height: 54px;
+        height: 54px;
+        vertical-align: middle;
+        float: left;
+        width: 5%;
+    }
+    /*列表箭头DIV样式*/
+    .listContent131 .listContentArrow {
+        /*display: none;*/
+        text-align: center;
+        height: 54px;
+        line-height: 54px;
+        vertical-align: middle;
+        float: left;
+        width: 5%;
+    }
+    /*列表选择框样式*/
+    .listContent131 .listContent-checkbox {
+        height: 28px;
+        line-height: 28px;
+        vertical-align: middle;
+        margin: 0;
+        padding: 0;
+    }
+/**详情块行样式**/
+/*1x2 */
+.row1x2 {
+    clear: both;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+}
+
+    .row1x2 .left {
+        float: left;
+        text-align: right;
+        color: #999999;
+    }
+
+    .row1x2 .right {
+        word-break: break-all;
+        word-wrap: break-word;
+        float: right;
+    }
+
+/*用于父DIV自适应浮动子DIV*/
+.floatClear {
+    clear: both;
+}
+/*tab标签样式*/
+.tabDiv {
+    clear: both;
+    background: #dfdfdf;
+    border-bottom: 1px solid #0295fc;
+    padding: 10px 0px 0px 20px;
+    text-shadow: none;
+}
+
+    .tabDiv .tab {
+        width: auto;
+        float: left;
+        padding: 5px 10px 5px 10px;
+        margin-right: 5px;
+        border-top: 1px solid #c3d0d9;
+        border-left: 1px solid #c3d0d9;
+        border-right: 1px solid #c3d0d9;
+        /*border-top-left-radius: 5px;*/
+        /*border-top-right-radius: 5px;*/
+        background-color: #b5ccdc;
+        cursor: pointer;
+    }
+
+    .tabDiv .selecttab {
+        width: auto;
+        float: left;
+        padding: 5px 10px;
+        color: white;
+        margin-right: 5px;
+        border-top: 1px solid #3dacfb;
+        border-left: 1px solid #3dacfb;
+        border-right: 1px solid #3dacfb;
+        /*border-top-left-radius: 5px;
+        border-top-right-radius: 5px;*/
+        background-color: #0295fc;
+        cursor: pointer;
+    }
+/*标签模式内容-标签样式*/
+.contentTab {
+    height: 2.5rem;
+    line-height: 2.5rem;
+    text-align: center;
+    /*background-color: white;*/
+    color: black;
+    text-shadow: none;
+    padding: 0px 0px 2px 0px;
+}
+    /*选中样式*/
+    .contentTab .selected {
+        float: left;
+        width: 33.33%;
+        /*border-bottom: 2px solid #4972bb;*/
+        background: #82c9fb;
+        color: white;
+        font-size: 1.6rem;
+    }
+    /*未选中样式*/
+    .contentTab .unSelected {
+        float: left;
+        width: 33.33%;
+        font-size: 1.6rem;
+    }
+/*内部滚动页码块wrapper样式*/
+.pageWrapper {
+}
+/*内部滚动页码块scroll样式*/
+.pageScroll {
+    height: 2.5rem;
+    line-height: 2.5rem;
+    text-align: center;
+    /*background-color: white;*/
+    color: black;
+    text-shadow: none;
+    /*padding: 0px 0px 2px 0px;*/
+}
+    /*选中样式*/
+    .pageScroll .selected {
+        float: left;
+        color: #4972bb;
+        font-size: 1.4rem;
+        background: #82c9fb;
+    }
+    /*未选中样式*/
+    .pageScroll .unSelected {
+        float: left;
+        font-size: 1.4rem;
+    }
+/*内部滚动内容块wrapper样式*/
+.contentWrapper {
+}
+
+.contentScroll {
+    position: relative;
+    /*border: 1px solid red;*/
+}
+
+    .contentScroll .scrollContent {
+        float: left;
+    }
+
+.baseInfo {
+    font-size: 1.4rem;
+    border-bottom: 1px solid #b4b3b1;
+}
+
+    .baseInfo .base {
+        padding: 5px 0px 5px 0px;
+        margin: 0px 10px 0px 10px;
+        vertical-align: bottom;
+        border-bottom: 1px solid #999999;
+    }
+
+    .baseInfo .mainInfo {
+        padding: 5px 0px 5px 0px;
+        margin: 0px 10px 0px 10px;
+        border-bottom: 1px solid #999999;
+    }
+
+    .baseInfo .discription {
+        word-break: break-all;
+        padding: 5px 0px 5px 0px;
+        margin: 0px 10px 0px 10px;
+        /*border-bottom: 1px solid #333333;*/
+    }
+/*详情模块*/
+.detailBlock {
+    font-size: 1.4rem;
+    /*margin: 0px 10px 0px 10px;*/
+    padding: 5px 0px 5px 0px;
+    border-bottom: 1px solid #999999;
+}
+/*颜色为#515151字体*/
+.color515151 {
+    color: #999999;
+}
+/*红色字体*/
+.colorred {
+    color: red;
+}
+/*字体加粗*/
+.fontWeight {
+    font-weight: 600;
+}
+/*占位隐藏*/
+.wordHidden {
+    visibility: hidden;
+}
+
+/*批量处理菜单样式*/
+.batchHander {
+    position: absolute;
+    right: 0;
+    display: none;
+    clear: both;
+    float: right;
+    background-color: #adabab;
+    z-index: 3;
+    width: 10rem;
+    text-align: center;
+    text-shadow: none;
+    border: 1px solid #666;
+    -webkit-box-shadow: #666 0px 0px 5px;
+    -moz-box-shadow: #666 0px 0px 5px;
+}
+    /*批量审核按钮样式*/
+    .batchHander .batchExamine {
+        height: 2.8rem;
+        line-height: 2.8rem;
+    }
+/*合并件弹出层样式*/
+.mergeDiv {
+    text-shadow: none;
+    border-bottom: 1px solid #999999;
+    height: 35px;
+    line-height: 35px;
+    padding: 0px 5px;
+    background: #c3e7ff;
+}
+/*多行文本输入区*/
+textarea .ui-input-text {
+    min-height: 90px;
+}
+
+.hidSpan {
+    visibility: hidden;
+    font-family: 'Times New Roman';
+}

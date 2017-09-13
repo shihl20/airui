@@ -1,0 +1,270 @@
+﻿/*陈毅*/
+/*2014-03-20*/
+/*功能导航样式---背景图片还的样式还没写*/
+.gd-menu-ul {
+    background-color: #fff;
+    padding: 0px;
+    margin-left: auto;
+    margin-right: auto;
+    height: 100%;
+    list-style-type: none;
+    text-align: center;
+    padding-left: 10px;
+    padding-right: 10px;
+    /*min-width: 300px;*/
+}
+
+.gd-menu-li {
+    width: 150px;
+    height: 150px;
+    border: 0px solid green;
+    text-align: center;
+    margin: 20px;
+    float: left;
+    display: table-cell;
+}
+
+    .gd-menu-li:last-of-type {
+        padding-bottom: 50px;
+    }
+
+.gd-menu-li-div {
+    width: 120px;
+    height: 120px;
+    border: 0px solid #0088ff;
+    border-radius: 20px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.gd-menu-li-p {
+    width: 150px;
+    margin: 0px auto;
+    font-weight: bold;
+    /*text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;*/
+}
+/*图标还没有，这只是测试，图标样式还要单独写*/
+.navig-icon-test {
+    background: url(Images/3_48x48.png) no-repeat;
+}
+
+
+/* 小分辨率 样式*/
+@media screen and (max-width:320px) {
+    .gd-menu-li {
+        width: 100%;
+        /*min-width: 290px;*/
+        height: 50px;
+        border: 0px solid green;
+        /*border-radius: 20px;*/
+        /*text-align: center;*/
+        margin: 0px;
+        float: left;
+        display: table-cell;
+    }
+
+    .gd-menu-li-first {
+        border-top-left-radius: 15px;
+        border-top-right-radius: 15px;
+    }
+
+    .gd-menu-li-last {
+        border-bottom-left-radius: 15px;
+        border-bottom-right-radius: 15px;
+    }
+
+    .gd-menu-li-div {
+        width: 50px;
+        height: 50px;
+        background-size: 50px;
+        background-repeat: no-repeat;
+        border: 0px solid #0088ff;
+        border-radius: 10px;
+        float: left;
+        margin-left: 20px;
+    }
+
+    .gd-menu-li-p {
+        width: 150px;
+        margin: 15px auto;
+        font-weight: bold;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+        float: left;
+    }
+
+    .houseregister-icon {
+        background-image: url(Images/small/houseRegister_s.png);
+    }
+
+    .netsign-icon {
+        background-image: url(Images/small/netSign_s.png);
+    }
+
+    .houseregister-bizcount-icon {
+        background-image: url(Images/small/houseRegister_bizCount_s.png);
+    }
+
+    .houseregister-biztodo-icon {
+        background-image: url(Images/small/houseRegister_bizTodo_s.png);
+    }
+
+    .houseregister-regbook-icon {
+        background-image: url(Images/small/houseRegister_regbook_s.png);
+    }
+
+    .houseregister-bizcount-sell-icon {
+        background-image: url(Images/small/houseRegister_bizCount_sell_s.png);
+    }
+
+    .houseRegister_bizAccept-icon {
+        background-image: url(Images/small/houseRegister_bizAccept_s.png);
+    }
+
+    .houseRegister-BizSrcRelate-icon {
+        background-image: url(Images/small/houseRegister_BizSrcRelate_s.png);
+    }
+
+    .default-menu-icon {
+        background-image: url(Images/small/default_s.png);
+    }
+}
+/* 中等分辨率样式 */
+@media screen and (min-width:321px) {
+    .gd-menu-li {
+        width: 100px;
+        height: 100px;
+        border-radius: 15px;
+        margin: 10px 2px;
+        background-size: 80px;
+    }
+
+    .gd-menu-li-div {
+        width: 80px;
+        height: 80px;
+        background-size: 80px;
+        background-repeat: no-repeat;
+    }
+
+    .gd-menu-li-p {
+        width: 100px;
+        font-size: 14px;
+    }
+
+    .houseregister-icon {
+        background-image: url(Images/middle/houseRegister_m.png);
+    }
+
+    .netsign-icon {
+        background-image: url(Images/middle/netSign_m.png);
+    }
+
+    .houseregister-bizcount-icon {
+        background-image: url(Images/middle/houseRegister_bizCount_m.png);
+    }
+
+    .houseregister-biztodo-icon {
+        background-image: url(Images/middle/houseRegister_bizTodo_m.png);
+    }
+
+    .houseregister-regbook-icon {
+        background-image: url(Images/middle/houseRegister_regbook_m.png);
+    }
+
+    .houseregister-bizcount-sell-icon {
+        background-image: url(Images/middle/houseRegister_bizCount_sell_m.png);
+    }
+
+    .houseRegister_bizAccept-icon {
+        background-image: url(Images/middle/houseRegister_bizAccept_m.png);
+    }
+
+    .houseRegister-BizSrcRelate-icon {
+        background-image: url(Images/middle/houseRegister_BizSrcRelate_m.png);
+    }
+
+    .default-menu-icon {
+        background-image: url(Images/middle/default_m.png);
+    }
+}
+
+/* 高分辨率样式 */
+@media screen and (min-width:800px) {
+    .gd-menu-li {
+        width: 120px;
+        height: 120px;
+        border-radius: 15px;
+        margin: 10px 5px;
+    }
+
+    .gd-menu-li-div {
+        width: 100px;
+        height: 100px;
+        background-size: 100px;
+        background-repeat: no-repeat;
+    }
+
+    .gd-menu-li-p {
+        width: 120px;
+    }
+
+    .houseregister-icon {
+        background-image: url(Images/large/houseRegister_l.png);
+    }
+
+    .netsign-icon {
+        background-image: url(Images/large/netSign_l.png);
+    }
+
+    .houseregister-bizcount-icon {
+        background-image: url(Images/large/houseRegister_bizCount_l.png);
+    }
+
+    .houseregister-biztodo-icon {
+        background-image: url(Images/large/houseRegister_bizTodo_l.png);
+    }
+
+    .houseregister-regbook-icon {
+        background-image: url(Images/large/houseRegister_regbook_l.png);
+    }
+
+    .houseregister-bizcount-sell-icon {
+        background-image: url(Images/large/houseRegister_bizCount_sell_l.png);
+    }
+
+    .houseRegister_bizAccept-icon {
+        background-image: url(Images/large/houseRegister_bizAccept_l.png);
+    }
+
+    .houseRegister-BizSrcRelate-icon {
+        background-image: url(Images/large/houseRegister_BizSrcRelate_l.png);
+    }
+
+    .default-menu-icon {
+        background-image: url(Images/large/default_l.png);
+    }
+}
+
+/*@media screen and (min-width:1024px) {
+    .gd-menu-li {
+        width: 150px;
+        height: 150px;
+        border-radius: 20px;
+    }
+
+    .gd-menu-li-div {
+        width: 120px;
+        height: 120px;
+    }
+
+    .gd-menu-li-p {
+        width: 150px;
+    }
+
+    .navig-icon-test {
+        background: url(Images/3_48x48.png) no-repeat;
+    }
+}*/

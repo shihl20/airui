@@ -1,0 +1,65 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <title></title>
+    <script src="../../Scripts/Tools.js"></script>
+    <script src="../../Scripts/Jquery/jquery-1.11.1.js"></script>
+    <script src="../../Scripts/Global.js"></script>
+    <script src="../../Scripts/Iscroll/iscroll.js"></script>
+    <link href="../../Scripts/Iscroll/scrollbar.css" rel="stylesheet" />
+</head>
+<body>
+    <div data-role="page" id="main">
+        <link href="Controls/ImageZoom/ImageZoom.css" rel="stylesheet" />
+        <script src="Controls/ImageZoom/ImageZoom.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                //返回
+                $("#goBack").on('click', function () {
+                    //var href = sessionStorage.getItem('link');
+                    //global.loadPageByGetMethod(href);
+                    //event.preventDefault();
+
+                });
+                var option = {};
+                option.curpage = 1;
+                option.pagesize = 20;
+                option.data = [];
+                var param = {};
+                var userId = sessionStorage.getItem('UserId')
+                param = String.format("{0}|{1}|{2}|{3}|{4}|{5}|{6}|{7}",
+           userId, option.curpage, option.pagesize, "52030020140623000001", "105", "010000", window.innerWidth, window.innerHeight);
+
+                global.invokeHandlerMethod("HouseEAIDXHandler", "GetElecArchiveImagSrcList", param, function (result) {
+
+                    var data = JSON.parse(result.d);
+                    $('#wrapper').imgZoom(data);
+                });
+            });
+        </script>
+        <div data-role="header" id="head" data-theme="h" data-position="fixed" data-tap-toggle="false">
+            <a href="#" id="goBack" data-role="button" class="ui-btn ui-icon-carat-l ui-btn-icon-left ui-shadow ui-corner-all">返回</a>
+            <h1></h1>
+            <a href="#mypanel" id="openPanel" data-role="button" class="ui-btn ui-icon-bars ui-btn-icon-left ui-shadow ui-corner-all ui-btn-icon-notext"></a>
+        </div>
+        <div class="main-content">
+            <div id="wrapper">
+                <div id="scroller">
+                    <ul id="orig">
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div id="nav" class="img-nav">
+        </div>
+
+        <div data-role="panel" id="mypanel" data-position="left" data-display="overlay" data-position-fixed="true">
+        </div>
+        <!-- /panel -->
+    </div>
+</body>
+</html>

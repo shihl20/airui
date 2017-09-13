@@ -1,0 +1,178 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>名师一对一</title>
+</head>
+<body>
+    <div data-role="page" id="main">
+        <style>
+            .weui-grid:before {
+                border: none;
+            }
+        </style>
+        <div class="ui-bar-h" id="head" data-theme="h" data-position="fixed" style="border: 0px" data-tap-toggle="false">
+            <div class="back">
+                <img src="Images/back.png" />
+            </div>
+            <!--<div class="menuImg">
+                <a href="#menuPanel" data-role="none" id="menuBtn">
+                    <img src="images/Head/Teacher/hkn.jpg" />
+                </a>
+            </div>-->
+            <!-- <div id="batchBtn" class="menuImgRight">
+                <img src="images/Head/Teacher/hkn.jpg" />
+            </div>-->
+            <!--<div class="mainTitle">名师一对一</div>-->
+        </div>
+
+        <div id="content" class="ui-content" style="background: #eeeef4">
+            <div class="talk" id="talk">
+                <div id="#talk_record" class="talk_record">
+                    <div id="jp-container" class="jp-container">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="weui-tabbar" id="foot">
+            <div>
+                <div style="float:left">
+                    <input class="add_face" id="facial" type="button" title="添加表情" value="" />
+                </div>
+                <div style="float:left"><input id="msgContent" class="messages emotion" autocomplete="off" /></div>
+                <div style="float:left">
+                    <input id="sendMsg" class="talk_send" type="button" title="发送" value="发送" />
+                </div>
+                <div style="float:left">
+                    <input class="talk_add_file" type="button" title="添加" onclick="showPopup()" />
+                </div>
+            </div>
+        </div>
+        <div id="more" class="weui-popup__container popup-bottom" style="z-index:501;">
+            <div class="weui-popup__overlay"></div>
+            <div class="weui-popup__modal">
+                <div class="toolbar">
+                    <div class="toolbar-inner">
+                        <a href="javascript:;" class="picker-button close-popup" style="font-size: 14px;">关闭</a>
+                    </div>
+                </div>
+                <div class="modal-content" style="border:none;background:none;border-radius:0px;">
+                    <div class="weui-grids">
+                        <div id="sendImg" class="weui-grid js_grid" style="padding:10px 10px;border:none;">
+                            <div class="weui-grid__icon">
+                                <img src="images/upphoto.png" alt="">
+                            </div>
+                            <p class="weui-grid__label">
+                                发送图片
+                            </p>
+                        </div>
+                        <div id="sendVedio" class="weui-grid js_grid" style="padding:10px 10px;border:none;">
+                            <div class="weui-grid__icon">
+                                <img src="images/upvideo.png" alt="">
+                            </div>
+                            <p class="weui-grid__label">
+                                发送视频
+                            </p>
+                        </div>
+                        <div class="weui-grid js_grid" style="padding:10px 10px;border:none;">
+                            <div class="weui-grid__icon">
+                                <img src="images/upsound.png" alt="">
+                            </div>
+                            <p class="weui-grid__label">
+                                发送语音
+                            </p>
+                        </div>
+                        <div id="openfile">查看拍摄或录制的视频</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript">
+            //调用
+            $("#sendVedio").click(function () {
+                //此处最终改为调用RN的方法
+                alert("vedio");
+            });
+            $("#sendImg").click(function () {
+                alert("camera");
+            });
+            
+            $("#openfile").click(function () {
+                alert("openfile");
+            });
+            //用于Android中录制视频后调用文件上传(此处可考虑直接在Android中使用上传，不用JS转一次)
+            function uploadVedio(filePath) {
+                //调用Android中的方法，上传指定路径下的文件
+                alert("fileUpload|vedio|" + filePath + "|" + webServiceUrl + "|" + serviceFilePath);
+            }
+            //Android上传文件成功后的回调
+            function uploadSucCallBack(filePath) {
+                //考虑到参数可能会根据不同的场景有变动，所以目前采用JS回调中处理后续逻辑
+            }
+            function showPopup() {
+                $('#more').popup();
+            }
+            //返回按钮事件
+            $('.back').click(function () {
+                if ($("#more").css("display") == "block") {
+                    $.closePopup()
+                }
+                else {
+                    toolBar.back();
+                }
+            });
+            global.pages.initPage();
+            //调整输入框宽度
+            $("#msgContent").width($(window).width() - 128);
+            var customInfo = sessionStorage.getItem("customInfo");
+            if (customInfo) {
+                customInfo = JSON.parse(customInfo);
+            }
+            var userInfo = sessionStorage.getItem("userAttr");
+            if (userInfo) {
+                userInfo = JSON.parse(userInfo);
+            }
+            var getALL = "1";
+            getChatLog();
+            //定时获取最新消息
+            chatInterval = setInterval(getChatLog, 5000);
+            function getChatLog() {
+                global.invokeHandlerMethod("ChatHandler", "GetChats", String.format("{0}|{1}|{2}|{3}", sessionStorage.getItem('UserId'), sessionStorage.getItem('chatCustomID'), sessionStorage.getItem('userType'), getALL), function (result) {
+                    var data = JSON.parse(result.d);
+                    if (data) {
+                        data.forEach(function (v, i) {
+                            if (sessionStorage.getItem('userType') == v.SendFrom) {
+                                $("#jp-container").append(String.format('<div class="talk_recordboxme"><div class="user"><img style="width:40px;height:40px;" src="{0}" />{1}</div><div class="talk_recordtextbg">&nbsp;</div><div class="talk_recordtext"><h3>{2}</h3><span class="talk_time">{3}</span></div><div style="clear: both;"></div></div>', userInfo.HeadUrl, userInfo.NickName, v.TextInfo, v.CreateTimeStr));
+                            }
+                            else {
+                                $("#jp-container").append(String.format('<div class="talk_recordbox"><div class="user"><img style="width:40px;height:40px;" src="{0}" />{1}</div><div class="talk_recordtextbg">&nbsp;</div><div class="talk_recordtext"><h3>{2}</h3><span class="talk_time">{3}</span></div><div style="clear: both;"></div></div>', customInfo.HeadUrl, customInfo.NickName, v.TextInfo, v.CreateTimeStr));
+                            }
+                        });
+                        try {
+                            $('#content').animate({ scrollTop: $('#content') ? $('#content').scrollHeight() : 0 }, getALL == "1" ? 0 : 300);
+                        } catch (e) {
+
+                        }
+                        getALL = "0";
+                    }
+                    message.closeLoading();
+                });
+            };
+            $("#sendMsg").click(function () {
+                var msgContent = $("#msgContent").val();
+                if (msgContent == "") {
+                    return;
+                }
+                global.invokeHandlerMethod("ChatHandler", "AddChat", String.format("{0}|{1}|{2}|{3}", sessionStorage.getItem('UserId'), sessionStorage.getItem('chatCustomID'), sessionStorage.getItem('userType'), msgContent), function (result) {
+                    if (result.d == "1") {
+                        $("#msgContent").val("");
+                        $("#jp-container").append(String.format('<div class="talk_recordboxme"><div class="user"><img style="width:40px;height:40px;" src="{0}" />{1}</div><div class="talk_recordtextbg">&nbsp;</div><div class="talk_recordtext"><h3>{2}</h3><span class="talk_time">{3}</span></div><div style="clear: both;"></div></div>', userInfo.UserIcoPath, userInfo.NickName, msgContent, new Date().format('yyyy-MM-dd hh:mm:ss')));
+                        $('#content').animate({ scrollTop: $('#content').scrollHeight() }, 300);
+                    }
+                });
+            });
+        </script>
+    </div>
+</body>
+</html>

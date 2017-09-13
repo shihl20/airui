@@ -1,0 +1,77 @@
+﻿.ui-btn, label.ui-btn {
+    border: 0;
+}
+
+.ui-page-theme-a .ui-btn {
+    background-color: initial;
+}
+
+    .ui-page-theme-a .ui-btn:hover {
+        background-color: initial;
+    }
+
+.ui-btn-icon-left:after {
+    left: .5em;
+}
+
+.ui-page-theme-a .ui-focus {
+    box-shadow: none;
+}
+
+.ui-checkbox {
+    width: 130px;
+}
+
+    .ui-checkbox input {
+        left: 11px;
+        margin: 0;
+        height: 0px;
+        width: 0px;
+        line-height: 0;
+        border: 0;
+        background: none;
+        -webkit-appearance: none;
+        color: none;
+    }
+
+.ui-btn.ui-checkbox-off {
+}
+
+    .ui-btn.ui-checkbox-off:after {
+        background-image: none;
+        background-color: #ccc;
+        opacity: 1;
+    }
+
+    .ui-btn.ui-checkbox-off:after, .ui-btn.ui-checkbox-on:after {
+        margin: -8px 0px 0 0px;
+    }
+
+
+.login-container {
+}
+
+/*ipad3、4、 mini 样式*/
+@media screen and (width:768px),screen and (width:1024px) {
+    .login-container {
+        width: 320px;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 40px;
+    }
+
+    .ui-input-text {
+        margin: 10px 0;
+    }
+
+        .ui-input-text input {
+            min-height: 24px;
+            line-height: 35px;
+            padding-bottom: 2px;
+            font-size: 18px;
+            padding-top: 2px;
+            outline-style: none;
+        }
+}
+

@@ -1,0 +1,78 @@
+﻿
+.gd-listview {
+    margin: 0;
+    list-style-type: none;
+    padding: 0;
+    border-collapse: collapse;
+}
+
+    .gd-listview:first-child .gd-listview-li:last-child {
+        border-bottom-left-radius: 8px;
+        border-bottom-right-radius: 8px;
+        border-bottom: 1px solid #000;
+    }
+
+.gd-listview-li {
+    width: auto;
+    min-height: 30px;
+    border: 1px solid #000;
+    /*border-bottom: 1px solid #000;*/
+    border-bottom: 0px solid #000;
+    background-color: #0094ff;
+    border-collapse: collapse;
+}
+
+.gd-listview-li-first {
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+.gd-listview-li-last {
+    /*border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    border-bottom: 1px solid #000;*/
+}
+
+.gd-listview-li-label {
+    font-weight: bold;
+    margin: 0;
+    height: 30px;
+    margin-left: 15px;
+    padding-left: 30px;
+    padding-top: 5px;
+    background-repeat: no-repeat;
+    display: block;
+}
+
+.gd-listview-li-label-flod {
+    background-position-y: 10px;
+    background-image: url(Images/plus-white.png);
+}
+
+.gd-listview-li-label-expansion {
+    background-position-y: 15px;
+    background-image: url(Images/minus-white.png);
+}
+
+.gd-listview-div {
+    background-color: white;
+    width: auto;
+    border-top: 1px solid #000;
+    display: block;
+    border-collapse: collapse;
+    padding-left: 40px;
+}
+
+.gd-listview-div-hide {
+    display: none;
+}
+
+.gd-listview-div-last {
+    /*border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;*/
+}
+
+.gd-listview:first-child .gd-listview-li:last-child .gd-listview-div:last-child {
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+}

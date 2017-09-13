@@ -1,0 +1,227 @@
+﻿/*陈毅,2015.01.5 */
+
+.thumbnail-container-line {
+    margin: 0;
+    margin-left: 10px;
+    border: 0;
+    border-style: none;
+    border-left: 1px dashed #AEAEAE;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    height: auto;
+}
+
+.thumbnail-container {
+    top: 45px;
+    width: 100%;
+    /* height: 100%; */
+}
+
+    .thumbnail-container .cate-title {
+        width: auto;
+        height: 30px;
+        margin-left: -4px;
+        padding-top: 5px;
+        box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        border: 0;
+        border-right: 1px dashed #AEAEAE;
+    }
+
+        .thumbnail-container .cate-title i {
+            -webkit-background-clip: border-box;
+            -webkit-background-origin: padding-box;
+            -webkit-background-size: auto;
+            background-attachment: scroll;
+            background-clip: border-box;
+            /* background-color: rgb(178, 222, 171); */
+            background-color: #95D4EA;
+            background-image: none;
+            background-origin: padding-box;
+            background-size: auto;
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            color: rgb(51, 51, 51);
+            display: inline-block;
+            font-family: 'Microsoft YaHei', SimSun, arial, 宋体;
+            font-size: 15px;
+            font-style: italic;
+            font-variant: normal;
+            font-weight: normal;
+            height: 7px;
+            line-height: 24px;
+            vertical-align: middle;
+            width: 7px;
+        }
+
+        .thumbnail-container .cate-title span {
+            background-color: #95D4E9;
+            color: #333;
+            display: inline-block;
+            font-family: 'Microsoft YaHei', SimSun, arial, 宋体;
+            /* font-size: 12px; */
+            font-style: normal;
+            font-variant: normal;
+            font-weight: normal;
+            height: 18px;
+            line-height: 18px;
+            margin-left: 5px;
+            padding: 3px 5px;
+            position: relative;
+            vertical-align: middle;
+            width: auto;
+            border-radius: 5px;
+            /* margin-left: -85px; */
+            -webkit-text-shadow: none;
+            text-shadow: none;
+        }
+
+    .thumbnail-container .img-container {
+        width: 100%;
+        min-height: 80px;
+        border: 1px dashed #AEAEAE;
+        border-top: 0;
+        border-left: 0;
+        box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        background-color: #fff;
+    }
+
+        .thumbnail-container .img-container img {
+            margin: 1px 2px;
+            background-color: #fff;
+            /*border: 1px solid #aeaeae;*/
+        }
+
+body, ul, li {
+    padding: 10px;
+    margin: 0;
+}
+
+body {
+    font-size: 12px;
+    -webkit-user-select: none;
+    -webkit-text-size-adjust: none;
+    font-family: helvetica;
+    padding: 0;
+}
+
+.contentScroller {
+    width: 320px; /*在文档加载后，修改width:值*/
+    float: left;
+    z-index: 1; /* it seems that recent webkit is less picky and works anyway. */
+    overflow: hidden;
+    background: #aaa;
+    background: #e3e3e3;
+    -webkit-box-sizing: border-box;
+    position: absolute;
+    height: 100%;
+    display: none;
+    top: 50px;
+    left: 0;
+    z-index: 1000;
+}
+
+    .contentScroller .scroller {
+        /*在文档加载后，修改width:值*/
+        width: 320px;
+        height: 100%;
+        float: left;
+        padding: 0;
+    }
+
+.scroller ul {
+    list-style: none;
+    display: block;
+    float: left;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    text-align: left;
+}
+
+.scroller li {
+    display: block;
+    vertical-align: middle;
+    float: left;
+    padding: 0px;
+    width: 320px;
+    height: 100%;
+    /*border-left: 1px solid #ccc;
+                border-right: 1px solid #fff;*/
+    background-color: #fafafa;
+    font-size: 14px;
+    -webkit-box-sizing: border-box;
+}
+
+
+
+.img-title {
+    display: none;
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 50px;
+    width: 100%;
+    z-index: 1001;
+    background-color: #0295fc;
+}
+
+    .img-title p {
+        text-align: center;
+        font-size: 14px;
+        text-shadow: none;
+        font-weight: bold;
+        padding-right: 40px;
+        width: 100%;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+    }
+
+    .img-title .index {
+        margin: 0;
+        text-shadow: none;
+        position: absolute;
+        top: 15px;
+        right: 5px;
+        font-size: 14px;
+        font-weight: bold;
+    }
+
+.btnClose {
+    width: 18px;
+    height: 18px;
+    position: absolute;
+    top: 10px;
+    right: 5px;
+    padding: 5px;
+}
+
+    .btnClose .popCls {
+        position: absolute;
+        right: 5px;
+        top: 12px;
+        height: 4px;
+        width: 18px;
+        background: #333;
+        font: bold 3.25em/0 arial;
+        -webkit-transform: rotate(45deg);
+        border-radius: 1px;
+    }
+
+        .btnClose .popCls::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            height: 4px;
+            width: 18px;
+            overflow: hidden;
+            background: #333;
+            -webkit-transform: rotate(90deg);
+            border-radius: 1px;
+        }

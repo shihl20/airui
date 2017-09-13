@@ -1,0 +1,153 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head runat="server">
+    <!--<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <!--<meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1, maximum-scale=1, user-scalable=no" />-->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-app-status-bar-style" content="white" />
+    <meta name="apple-mobile-app-status-bar-style" content="black" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+    <!--去除邮件自动识别-->
+    <meta content="email=no" name="format-detection" />
+    <title>登录</title>
+    <!-- 添加到主屏的Log -->
+    <link rel="apple-touch-icon-precomposed" href="Images/log128.png" />
+    <link rel="apple-touch-icon-precomposed" size="72x72" href="Images/log128.png" />
+    <link rel="apple-touch-icon-precomposed" size="114x114" href="Images/log128.png" />
+    <!--主菜单-->
+    <link href="Controls/Menu/Menu.css" rel="stylesheet" />
+    <!--公共类库-->
+    <link href="Css/Themes.css" rel="stylesheet" />
+    <script src="Scripts/Tools.js"></script>
+
+    <!--<link href="Scripts/Jquery/jquery.mobile-1.4.4.min.css" rel="stylesheet" />-->
+    <!--<link href="Scripts/Jquery/jquery.mobile-1.4.4.css" rel="stylesheet" />-->
+    <!--<link href="Scripts/UserPlug-in/Css/GdLoadingPlug-in.css" rel="stylesheet" />-->
+    <!--<script src="Scripts/zepto.js"></script>-->
+    <script src="Scripts/jquery-1.11.1.min.js"></script>
+    <!--<script src="Scripts/Jquery/jquery.mobile-1.4.4.js"></script>-->
+    <script src="Scripts/json2.js"></script>
+
+    <script src="Controls/Menu/Menu.js"></script>
+    <!--HTML辅助类-->
+    <script src="Scripts/HtmlHelper.js"></script>
+    <!--工具栏-->
+    <script src="Scripts/ToolBar/ToolBar.js"></script>
+    <!--分页-->
+    <script src="Controls/Pagination/pageination.js"></script>
+
+    <!--工具类-->
+    <script src="Scripts/Global.js"></script>
+    <!--<script src="Scripts/UserPlug-in/GdLoadingPlug-in.js"></script>-->
+    <link href="Css/Default/Global.css" rel="stylesheet" />
+    <!--<link href="Controls/Mobiscroll/Content/mobiscroll-2.9.5.full.min.css" rel="stylesheet" />
+    <script src="Controls/Mobiscroll/Scripts/mobiscroll-2.9.5.full.min.js"></script>-->
+    <!--提示消息-->
+    <link href="Controls/Message/Message.css" rel="stylesheet" />
+
+    <!--artDialog-->
+    <link href="Scripts/ArtDialog/ui-dialog.css" rel="stylesheet" />
+    <link href="Scripts/ArtDialog/selfDialog.css" rel="stylesheet" />
+    <script src="Scripts/ArtDialog/dialog.js"></script>
+    <!--<script src="Scripts/ArtDialog/dialog-min.js"></script>-->
+    <script src="Controls/Message/Message.js"></script>
+    <!--解决click300ms延迟-->
+    <!-- <script src="Scripts/FastClick/fastclick.js"></script>
+    <script>
+        window.addEventListener(FastClick.attach, false);
+    </script>-->
+    <!--<script src="Scripts/Jquery/jquery.mobile-1.4.4.min.js"></script>-->
+    <!--iscroll滚动条-->
+    <script src="Scripts/Iscroll/iscroll.js"></script>
+    <link href="Scripts/Iscroll/scrollbar.css" rel="stylesheet" />
+    <link href="Css/scroll.css" rel="stylesheet" />
+    <!--自定义可折叠DIV-->
+    <link href="Controls/Collapsed/Collapsed.css" rel="stylesheet" />
+    <!--添加到主屏-->
+    <link href="Controls/AddDesktop/AddDesktop.css" rel="stylesheet" />
+    <script src="Controls/AddDesktop/AddDesktop.js"></script>
+    <!--[if lt IE 9]><script src="js/html5.js"></script><![endif]-->
+    <!--图片轮播-->
+    <link href="Scripts/ImagesCtrl/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="Scripts/ImagesCtrl/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="Scripts/ImagesCtrl/css/animate.min.css" rel="stylesheet" />
+    <link href="Scripts/ImagesCtrl/css/bootstrap-touch-slider.css" rel="stylesheet" />
+    <script src="Scripts/ToolBar/ToolBar.js"></script>
+    <script src="Scripts/ImagesCtrl/js/bootstrap-touch-slider-min.js"></script>
+    <script src="Scripts/ImagesCtrl/js/bootstrap-touch-slider.js"></script>
+    <script src="Scripts/ImagesCtrl/js/bootstrap.min.js"></script>
+    <script src="Scripts/ImagesCtrl/js/jquery.touchSwipe.min.js"></script>
+    <!-- touch相关 -->
+    <script src="Scripts/touch/touch.min.js"></script>
+    <script src="Scripts/touch/hijs.js"></script>
+    <!-- jqweui -->
+    <link rel="stylesheet" href="Css/weui.min.css">
+    <link rel="stylesheet" href="css/jquery-weui.min.css">
+    <link href="Css/webkit-scrollbar.css" rel="stylesheet" />
+    <link href="Css/Chat.css" rel="stylesheet" />
+    <script src="Scripts/jquery-weui.min.js"></script>
+    <link href="Scripts/Chat/jscrollpane1.css" rel="stylesheet" />
+    <script src="Scripts/Chat/scroll-startstop.events.jquery.js"></script>
+    <script src="Scripts/Chat/jquery.mousewheel.js"></script>
+    <script src="Scripts/Chat/jquery.jscrollpane.min.js"></script>
+    <style type="text/css">
+        html {
+            font-size: 62.5%;
+        }
+
+        body {
+            font-size: 14px;
+        }
+    </style>
+
+</head>
+
+<body ontouchstart="">
+    <div data-role="page" id="main">
+        <!--登录处理脚本-->
+        <link href="Css/login.css" rel="stylesheet" />
+        <link href="Controls/AddDesktop/AddDesktop.css" rel="stylesheet" />
+        <script src="Controls/AddDesktop/AddDesktop.js"></script>
+        <script src="Scripts/clientLogin.js"></script>
+        <script src="Scripts/md5.js"></script>
+        <div class="ui-bar-h" data-theme="h" data-position="fixed" id="head" style="border: 0px" data-tap-toggle="false">
+            <div class="mainTitle" style="font-size: 18px">欢迎使用智慧树-教师平台</div>
+        </div>
+        <div id="content" class="login-content" role="main" style="padding: 0px 15px 0px 15px">
+            <div class="login-container">
+                <div style="margin: 30px 0px 30px 0px; text-align: center">
+                    <img src="Images/logo128.png" style="vertical-align: middle;" />
+                </div>
+            </div>
+            <div class="weui-cells weui-cells_form">
+                <div class="weui-cell">
+                    <div class="weui-cell__bd">
+                        <input id="username" onkeyup="ClearPsw()" class="weui-input" type="text" placeholder="请输入手机号">
+                    </div>
+                </div>
+                <div class="weui-cell">
+                    <div class="weui-cell__bd">
+                        <input id="password" type="password" class="weui-input" type="text" placeholder="请输入密码">
+                    </div>
+                </div>
+                <div class="weui-cell weui-cell_switch">
+                    <div class="weui-cell__bd">记住密码</div>
+                    <div class="weui-cell__ft">
+                        <label for="saveLoginName" class="weui-switch-cp">
+                            <input id="saveLoginName" class="weui-switch-cp__input" type="checkbox" checked="checked">
+                            <div class="weui-switch-cp__box"></div>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <button id="loginBtn" href="javascript:;" on-tap="javascript:alter('原生JS可用')" style="margin-top: 20px;" class=" weui-btn weui-btn_primary">登录</button>
+        </div>
+        <!--<div data-role="footer" data-position="fixed" data-tap-toggle="false"></div>-->
+    </div>
+    <script type="text/javascript">
+        document.getElementById("username").value = "cs"
+    </script>
+</body>
+</html>

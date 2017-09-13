@@ -1,0 +1,164 @@
+﻿.submitDialog {
+    text-shadow: none;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+}
+
+    /*标题背景色*/
+    .submitDialog .ui-dialog-header {
+        height: 2.4rem;
+        -moz-border-radius-topright: 5px;
+        -moz-border-radius-topleft: 5px;
+        -webkit-border-top-left-radius: 5px;
+        -webkit-border-top-right-radius: 5px;
+        border-top-right-radius: 5px;
+        border-top-left-radius: 5px;
+        background: #0295fc;
+    }
+
+    /*标题文字对齐方式*/
+    .submitDialog .ui-dialog-title {
+        height: 4.2rem;
+        line-height: 4.2rem;
+        border-top-left-radius: 5px;
+        color: white;
+        padding: 0px 15px 0px 25px;
+        font-size: 1.8rem;
+        text-align: center;
+        background: #0295fc;
+    }
+    /*标题关闭按钮样式*/
+    .submitDialog .ui-dialog-close {
+        height: 4.2rem;
+        line-height: 4.2rem;
+        top: 0px;
+        padding: 0px;
+        font-size: 3.5rem;
+        opacity: 1;
+        color: white;
+        right: 1rem;
+    }
+
+    .submitDialog .ui-dialog-body {
+        -moz-border-radius-bottomleft: 5px;
+        -moz-border-radius-bottomright: 5px;
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+        -webkit-border-bottom-left-radius: 5px;
+        -webkit-border-bottom-right-radius: 5px;
+    }
+
+.loadingDialog {
+    background: none;
+    border: none;
+    -webkit-border: none;
+    -moz-border: none;
+    text-shadow: none;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+}
+
+    .loadingDialog .ui-dialog-body {
+        background: none;
+    }
+
+.ui-popup-focus .ui-dialog {
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+}
+
+.ui-popup-modal .ui-dialog {
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+}
+
+.ui-dialog-loading {
+    vertical-align: middle;
+    position: relative;
+    display: block;
+    *zoom: 1;
+    *display: inline;
+    overflow: hidden;
+    width: 32px;
+    height: 32px;
+    top: 50%;
+    margin: -16px auto 0 auto;
+    font-size: 0;
+    text-indent: -999em;
+    color: #666;
+}
+
+.ui-dialog-loading {
+    display: block;
+    float: left;
+    width: 40px;
+    height: 40px;
+    box-shadow: none;
+    background: url(../Iscroll/pull-icon@2x.png) 0 0 no-repeat;
+    -webkit-background-size: 40px 80px;
+    background-size: 40px 80px;
+    -webkit-transition-property: -webkit-transform;
+    -webkit-transition-duration: 250ms;
+    background-position: 0 100%;
+    -webkit-transform: rotate(0deg) translateZ(0);
+    -webkit-transition-duration: 0ms;
+    -webkit-animation-name: loading;
+    -webkit-animation-duration: 2s;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+}
+
+    .ui-dialog-loading::after {
+        box-shadow: none;
+    }
+
+@-webkit-keyframes loading {
+    from {
+        -webkit-transform: rotate(0deg) translateZ(0);
+    }
+
+    to {
+        -webkit-transform: rotate(360deg) translateZ(0);
+    }
+}
+
+.noteDialog {
+    /*opacity: 0.7;*/
+    margin: auto 15px;
+    border-radius: 0px;
+    background: #676767;
+}
+
+    .noteDialog .ui-dialog {
+        border-radius: 0px;
+    }
+
+    .noteDialog .ui-dialog-body {
+        /*opacity: 0.7;*/
+        color: white;
+        background: #676767;
+        font-size: 1.6rem;
+        border-radius: 0px;
+        text-shadow: none;
+        padding: 10px 20px;
+        vertical-align: middle;
+    }
+
+.artDialog {
+    border-radius: 0px;
+}
+
+    .artDialog .ui-dialog {
+        border-radius: 0px;
+    }
+
+    .artDialog .ui-dialog-body {
+        border-radius: 0px;
+    }

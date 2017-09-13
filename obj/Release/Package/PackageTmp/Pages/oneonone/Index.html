@@ -1,0 +1,154 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>名师一对一</title>
+</head>
+<body>
+    <div data-role="page" id="main">
+        <div class="ui-bar-h" id="head" data-theme="h" data-position="fixed" style="border: 0px" data-tap-toggle="false">
+            <!--<div class="menuImg">
+                <a href="#menuPanel" data-role="none" id="menuBtn">
+                    <img src="images/home.png" />
+                </a>
+            </div>-->
+            <!--<div id="batchBtn" class="menuImgRight">
+                <img src="Images/more.png" />
+            </div>-->
+            <div class="mainTitle">名师一对一</div>
+        </div>
+
+
+        <div role="main" class="ui-content">
+            <div id="bootstrap-touch-slider" style="height: 170px;" class="carousel bs-slider fade  control-round indicators-line" data-ride="carousel" data-pause="hover" data-interval="5000">
+
+                <!-- Indicators -->
+                <ol class="carousel-indicators">
+                    <li data-target="#bootstrap-touch-slider" data-slide-to="0" class="active"></li>
+                    <li data-target="#bootstrap-touch-slider" data-slide-to="1"></li>
+                    <li data-target="#bootstrap-touch-slider" data-slide-to="2"></li>
+                </ol>
+
+                <!-- Wrapper For Slides -->
+                <div class="carousel-inner" role="listbox">
+
+                    <!-- Third Slide -->
+                    <div class="item active">
+
+                        <!-- Slide Background -->
+                        <img src="Images/ad/1v1/1v1-2.jpg" alt="Bootstrap Touch Slider" class="slide-image" />
+                        <!--<div class="bs-slider-overlay"></div>-->
+                        <!--<div class="container">
+                        <div class="row">
+                            <div class="slide-text slide_style_left">
+                                <h1 data-animation="animated zoomInRight">冲击清华北大之路</h1>
+                                <p data-animation="animated fadeInLeft">226元立即拥有.</p>
+                            </div>
+                        </div>
+                    </div>-->
+                    </div>
+                    <!-- End of Slide -->
+                    <!-- Second Slide -->
+                    <div class="item">
+
+                        <!-- Slide Background -->
+                        <img src="Images/ad/1v1/1v1-3.jpg" alt="Bootstrap Touch Slider" class="slide-image" />
+                        <!--<div class="bs-slider-overlay"></div>-->
+                        <!-- Slide Text Layer -->
+                        <!--<div class="slide-text slide_style_center">
+                        <h1 data-animation="animated flipInX">独揽万元奖学金</h1>
+                        <p data-animation="animated lightSpeedIn">正在报名.</p>
+                    </div>-->
+                    </div>
+                    <!-- End of Slide -->
+                    <!-- Third Slide -->
+                    <div class="item">
+
+                        <!-- Slide Background -->
+                        <img src="Images/ad/1v1/1v1-4.jpg" alt="Bootstrap Touch Slider" class="slide-image" />
+                        <!--<div class="bs-slider-overlay"></div>-->
+                        <!-- Slide Text Layer -->
+                        <!-- <div class="slide-text slide_style_right">
+                        <h1 data-animation="animated zoomInLeft">志愿填报咨询，助力考上心仪大学</h1>
+                        <p data-animation="animated fadeInRight">全国特级专家一对一分析.</p>
+                    </div>-->
+                    </div>
+                    <!-- End of Slide -->
+
+
+                </div>
+                <!-- End of Wrapper For Slides -->
+                <!-- Left Control -->
+                <a class="left carousel-control" href="#bootstrap-touch-slider" role="button" data-slide="prev">
+                    <span class="fa fa-angle-left" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+
+                <!-- Right Control -->
+                <a class="right carousel-control" href="#bootstrap-touch-slider" role="button" data-slide="next">
+                    <span class="fa fa-angle-right" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+
+            </div>
+            <div class="weui-panel weui-panel_access">
+                <div class="weui-panel__hd">我的指导老师</div>
+                <div id="myteaher" class="weui-panel__bd">
+                </div>
+                <div class="weui-panel__ft">
+                    <a href="javascript:void(0);" class="weui-cell weui-cell_access weui-cell_link">
+                        <div class="weui-cell__bd">查看更多</div>
+                        <span class="weui-cell__ft"></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="weui-tabbar" id="foot"></div>
+        <!--<div data-role="panel" id="menuPanel" data-position-fixed="true">
+            <div id="userHeard" class="user-heard">
+            </div>
+            <div class="menuLine"></div>
+            <div id="mainMenu">
+            </div>
+        </div>-->
+        <script type="text/javascript">
+            //返回按钮事件
+            $('.back').click(function () {
+                toolBar.back();
+            });
+            global.pages.createFoot('2');
+            global.pages.initPage();
+            $('.slide-text').css("top", "3%");
+            //$('.nav-pills>li>a').css("border-radius", "0px");
+            $('#bootstrap-touch-slider').bsTouchSlider();
+            //添加艺术老师
+            $("#addBtn").click(function () {
+
+            });
+            //获取老师列表
+            global.invokeHandlerMethod("YiKaoHandler", "GetMyTeachers", String.format("{0}|{1}", sessionStorage.getItem('UserId'), "0301"), function (result) {
+                var data = JSON.parse(result.d);
+                if (data) {
+                    data.forEach(function (v, i) {
+                        $("#myteaher").append(String.format('<div  class="weui-media-box weui-media-box_appmsg" data-custom_id="{0}" data-custom-info=\'{4}\'><div class="weui-media-box__hd"><img class="weui-media-box__thumb" src="{1}" /></div><div class="weui-media-box__bd"><h4 class="weui-media-box__title">{2}</h4><p class="weui-media-box__desc">{3}</p></div></div>', v.ID, v.HeadUrl, v.NickName, v.Introduction, JSON.stringify(v)));
+                    });
+                    objClickReg();
+                }
+                message.closeLoading();
+            });
+            //注册点击事件
+            function objClickReg() {
+                $("#myteaher>div").click(function () {
+                    sessionStorage.setItem("customInfo", $(this).attr("data-custom-info"));
+                    sessionStorage.setItem("chatCustomID", $(this).attr("data-custom_id"));
+                    sessionStorage.setItem("userType", "1");//设置用户类型为学生
+                    //设置返回地址
+                    global.setBackUrl('Pages/oneonone/Index.html', false);
+                    global.loadPageByGetMethod("Pages/Common/Chat.html");
+                });
+            }
+        </script>
+    </div>
+</body>
+</html>

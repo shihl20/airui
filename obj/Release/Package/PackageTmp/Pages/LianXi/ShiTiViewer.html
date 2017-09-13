@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>练习</title>
+</head>
+<body>
+    <div data-role="page" id="main">
+        <div id="hideBack" class="back" style="display: none">
+            <img src="Images/back.png" />
+        </div>
+        <iframe id="viewerfm" src="web/viewer.html?v=20170713" style="width: 100%; border: none; height: 670px;"></iframe>
+        <script>
+            $(document).ready(function () {
+                $("#viewerfm").height($(window).height());
+                //返回按钮事件
+                $('.back').click(function () {
+                    toolBar.back();
+                });
+                //左侧菜单隐藏
+                $(document).click(function () {
+                    $('#rightMenu').hide();
+                });
+                var viewUrl = sessionStorage.getItem("viewerPara");
+                $("#viewerfm").attr("src", viewUrl);
+            });
+            //设置返回地址
+            global.setBackUrl('Pages/LianXi/ShiTiList.html', true);
+            function showMsg(msg) {
+                $.alert(msg);
+            }
+        </script>
+    </div>
+</body>
+</html>

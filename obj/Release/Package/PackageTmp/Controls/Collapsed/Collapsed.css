@@ -1,0 +1,95 @@
+﻿.open {
+    text-shadow: none;
+}
+
+    .open .head {
+        height: 42px;
+        line-height: 42px;
+        border-bottom: 1px solid #b4b3b1;
+        background-color: #e7e4e3;
+    }
+
+    .open .title {
+        font-size: 14px;
+        font-weight: 600;
+        float: left;
+    }
+
+    .open .img {
+        width: 14px;
+        height: 14px;
+        margin: 14px 10px 14px 10px;
+        float: left;
+        background-size: 14px 14px;
+        background-image: url(../../Images/minus.png);
+        background-repeat: no-repeat;
+    }
+
+    .open .content {
+        display: block;
+        padding: 0px 10px 0px 10px;
+        border-bottom: 1px solid #b4b3b1;
+    }
+
+.closed {
+    text-shadow: none;
+}
+
+    .closed .content {
+        display: none;
+        margin: 0px 10px 0px 10px;
+        /*border-bottom: 1px solid #999999;*/
+        /*border-top: 1px solid #999999;*/
+    }
+
+    .closed .head {
+        height: 42px;
+        line-height: 42px;
+        border-bottom: 1px solid #b4b3b1;
+        background-color: #e7e4e3;
+    }
+
+    .closed .title {
+        font-size: 14px;
+        font-weight: 600;
+        float: left;
+    }
+
+    .closed .img {
+        width: 14px;
+        height: 14px;
+        margin: 14px 10px 14px 10px;
+        float: left;
+        background-size: 14px 14px;
+        background-image: url(../../Images/add.png);
+        background-repeat: no-repeat;
+    }
+
+
+.floatTitle {
+    text-shadow: none;
+    display: none;
+    z-index: 999;
+    height: 42px;
+    line-height: 42px;
+    position: absolute;
+    width: 100%;
+    border-bottom: 1px solid #b4b3b1;
+    background-color: #e7e4e3;
+}
+
+    .floatTitle .title {
+        font-size: 14px;
+        font-weight: 600;
+        float: left;
+    }
+
+    .floatTitle .img {
+        width: 14px;
+        height: 14px;
+        margin: 14px 10px 14px 10px;
+        float: left;
+        background-size: 14px 14px;
+        background-image: url(../../Images/minus.png);
+        background-repeat: no-repeat;
+    }

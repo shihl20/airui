@@ -1,0 +1,12 @@
+﻿#top_alert {
+    width: 250px;
+    padding: 10px 0;
+    background: #fefcef;
+    border: 1px solid #f8efb0;
+    color: #e69041;
+    position: absolute;
+    text-align: center;
+    left: 35%;
+    top: 0;
+    z-index: 1999;
+}

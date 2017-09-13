@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>高考志愿填报</title>
+</head>
+<body>
+    <div data-role="page" id="main">
+        <div class="ui-bar-h" id="head" data-theme="h" data-position="fixed" style="border: 0px" data-tap-toggle="false">
+            <!--<div class="menuImg">
+                <a href="#menuPanel" data-role="none" id="menuBtn">
+                    <img src="images/home.png" />
+                </a>
+            </div>-->
+            <!--<div id="batchBtn" class="menuImgRight">
+                <img src="Images/more.png" />
+            </div>-->
+            <div class="mainTitle">高考志愿填报</div>
+        </div>
+
+        <div id="content">
+            <ul id="objList" class="nav nav-pills nav-justified">
+                <li><a href="#">正在开发，敬请期待...</a></li>
+            </ul>
+        </div>
+
+        <div class="weui-tabbar" id="foot"></div>
+        <!--<div data-role="panel" id="menuPanel" data-position-fixed="true">
+            <div id="userHeard" class="user-heard">
+            </div>
+            <div class="menuLine"></div>
+            <div id="mainMenu">
+            </div>
+        </div>-->
+        <script type="text/javascript">
+            global.pages.createFoot('4');
+            //返回按钮事件
+            $('.back').click(function () {
+                toolBar.back();
+            });
+            //左侧菜单隐藏
+            $(document).click(function () {
+                $('#rightMenu').hide();
+            });
+            $('.slide-text').css("top", "3%");
+            $('.nav-pills>li>a').css("border-radius", "0px");
+        </script>
+    </div>
+</body>
+</html>

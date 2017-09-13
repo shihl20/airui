@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>练习</title>
+</head>
+<body>
+    <div data-role="page" id="main">
+        <div class="ui-bar-h" id="head" data-theme="h" data-position="fixed" style="border: 0px" data-tap-toggle="false">
+            <!--<div class="menuImg">
+                <a href="#menuPanel" data-role="none" id="menuBtn">
+                    <img src="images/home.png" />
+                </a>
+            </div>-->
+            <!--<div id="batchBtn" class="menuImgRight">
+                <img src="Images/add_white.png" style="vertical-align:baseline;" />
+            </div>-->
+            <div id="mainTitle" class="mainTitle">个人中心</div>
+        </div>
+        <div role="main" class="ui-content">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">
+                        账号管理
+                    </h3>
+                </div>
+                <ul id="shitiList" class="list-group">
+                    <li class="list-group-item">个人资料</li>
+                    <li class="list-group-item">一对一答题记录</li>
+                    <li class="list-group-item">我的账户</li>
+                </ul>
+            </div>
+        </div>
+        <div class="weui-tabbar" id="foot"></div>
+        <script type="text/javascript">
+            global.pages.createTCFoot('3');
+            $('.slide-text').css("top", "3%");
+            $('.nav-pills>li>a').css("border-radius", "0px");
+            $('#bootstrap-touch-slider').bsTouchSlider();
+            //返回按钮事件
+            $('.back').click(function () {
+                $.closePopup();
+            });
+            //初始化页面
+            var noRefresh = sessionStorage.getItem('noRefresh');
+            if (noRefresh != 'true') {
+            }
+            else {
+                global.bakContent.get();
+                //获取进度条原始位置
+                var scrollY = sessionStorage.getItem("scrollPos");
+                //刷新滚动条
+                myScroll.refresh();
+                //滚动到原位置
+                myScroll.scrollTo(0, scrollY, 1, false);
+            }
+        </script>
+    </div>
+</body>
+</html>

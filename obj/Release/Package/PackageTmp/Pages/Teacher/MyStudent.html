@@ -1,0 +1,77 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>练习</title>
+</head>
+<body>
+    <div data-role="page" id="main">
+        <div class="ui-bar-h" id="head" data-theme="h" data-position="fixed" style="border: 0px" data-tap-toggle="false">
+            <div class="menuImg">
+                <a href="#menuPanel" data-role="none" id="menuBtn">
+                    <img src="images/home.png" />
+                </a>
+            </div>
+            <div id="moreBtn" class="menuImgRight">
+                <img src="Images/more.png" />
+            </div>
+            <div id="mainTitle" class="mainTitle">开始答疑</div>
+        </div>
+        <div id="content">
+            <!-- 学生求助信息列表 按学生分组 -->
+            <div id="studentList" class="weui-cells" style="margin-top: 0px;">
+            </div>
+        </div>
+        <!-- 页脚 -->
+        <div class="weui-tabbar" id="foot">
+        </div>
+        <script type="text/javascript">
+            global.pages.createTCFoot('1');
+            $('.slide-text').css("top", "3%");
+            $('.nav-pills>li>a').css("border-radius", "0px");
+            $('#bootstrap-touch-slider').bsTouchSlider();
+            $("#menuBtn").click(function () {
+                alert("camera");
+            });
+            //初始化页面
+            var noRefresh = sessionStorage.getItem('noRefresh');
+            if (noRefresh != 'true') {
+                //设置设置界面高度
+                $("#content").height($(document).height());
+                //获取我的学生列表
+                global.invokeHandlerMethod("TeacherHandler", "GetMyStudents", sessionStorage.getItem('UserId'), function (result) {
+                    var data = JSON.parse(result.d);
+                    if (data) {
+                        data.forEach(function (v, i) {
+                            $("#studentList").append(String.format('<div data-custom-id=\'{0}\' data-custom-info=\'{6}\' class="weui-cell" style="padding: 5px 5px;"><div class="weui-cell__hd"><img style="width: 42px; height: 42px; border-radius: 21px;" src="{1}"><\/div><div class="weui-cell__bd" data-name="studentNotice"><div><span>{2}<\/span><span style="position: absolute; right: 1em; font-size: 12px;">{3}<\/span><\/div><div style="font-size: 14px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; width: 65%;"><span>{4}<\/span><span class="weui-badge" style="position: absolute; right: 1em;">{5}<\/span><\/div><\/div><\/div>', v.UserId, v.HeadUrl, v.UserName, v.LastChatTime, v.LastChatText, v.NotReadCount, JSON.stringify(v)));
+                        });
+                        //objSetReg();
+                        noteReadClickReg();                       
+                    }
+                    message.closeLoading();
+                });
+            }
+            else {
+                global.bakContent.get();
+                //获取进度条原始位置
+                var scrollY = sessionStorage.getItem("scrollPos");
+                //刷新滚动条
+                myScroll.refresh();
+                //滚动到原位置
+                myScroll.scrollTo(0, scrollY, 1, false);
+            }
+            //未读学生列表点击事件
+            function noteReadClickReg() {
+                $("#studentList>div").click(function () {
+                    sessionStorage.setItem("customInfo", $(this).attr("data-custom-info"));
+                    sessionStorage.setItem("chatCustomID", $(this).attr("data-custom-id"));
+                    sessionStorage.setItem("userType", "2");//设置用户类型为学生
+                    //设置返回地址
+                    global.setBackUrl('Pages/Teacher/MyStudent.html', false);
+                    global.loadPageByGetMethod("Pages/Common/Chat.html");
+                });
+            }
+        </script>
+    </div>
+</body>
+</html>
